@@ -15,3 +15,12 @@ bin/
 .settings
 .springBeans
 .sts4-cache
+
+### Local build / IDE ###
+out/
+*.class
+.idea/
+*.iml
+.vscode/
+.DS_Store
+Thumbs.db
