@@ -9,11 +9,24 @@ try {
     } elseif (-not (Get-Command javac -ErrorAction SilentlyContinue)) {
         throw "Install JDK 8 and configure JAVA_HOME or PATH."
     }
-    $oldPreference = $ErrorActionPreference
-    $ErrorActionPreference = "Continue"
-    $version = (& $compiler -version 2>&1 | Out-String).Trim()
-    $versionExit = $LASTEXITCODE
-    $ErrorActionPreference = $oldPreference
+    # Read native stderr directly; Windows PowerShell formats it as ErrorRecord otherwise.
+    $versionProcess = New-Object System.Diagnostics.Process
+    $versionProcess.StartInfo.FileName = $compiler
+    $versionProcess.StartInfo.Arguments = "-version"
+    $versionProcess.StartInfo.UseShellExecute = $false
+    $versionProcess.StartInfo.CreateNoWindow = $true
+    $versionProcess.StartInfo.RedirectStandardOutput = $true
+    $versionProcess.StartInfo.RedirectStandardError = $true
+    try {
+        [void]$versionProcess.Start()
+        $stdoutTask = $versionProcess.StandardOutput.ReadToEndAsync()
+        $stderrTask = $versionProcess.StandardError.ReadToEndAsync()
+        $versionProcess.WaitForExit()
+        $versionExit = $versionProcess.ExitCode
+        $version = ($stdoutTask.Result + $stderrTask.Result).Trim()
+    } finally {
+        $versionProcess.Dispose()
+    }
     if ($versionExit -ne 0 -or $version -notmatch '^javac 1\.8\.') {
         throw "This course uses JDK 8. Found: $version"
     }
