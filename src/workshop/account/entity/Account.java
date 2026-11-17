@@ -1,6 +1,6 @@
 package workshop.account.entity;
 
-public class Account {
+public class Account extends Object {
 	private String custId;
 	private String acctId;
 	private int balance;
@@ -44,5 +44,13 @@ public class Account {
 	public void withdraw(int amount) {
 		this.balance -= amount;
 	}
+
+	@Override
+	public String toString() {
+		return "Account [custId=" + custId + ", acctId=" + acctId + ", balance=" + balance + "]";
+	}
+	
+	
+	
 
 }
