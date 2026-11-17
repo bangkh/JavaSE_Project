@@ -24,6 +24,8 @@ public class AccountTest {
 			System.out.println("계좌번호 = " + account2.getAcctId());
 			System.out.println("잔액 = " + account2.getBalance());
 			
+			account2.withdraw(60000);
+			
 			//toString();
 			//getClass().getName() + '@' + Integer.toHexString(hashCode())
 			//workshop.account.entity.Account@2a139a55
