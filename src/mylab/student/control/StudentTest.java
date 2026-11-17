@@ -17,7 +17,6 @@ public class StudentTest {
             System.out.println("5학년으로 변경");
             student.setGrade(5);
         } catch (InvalidGradeException e) {
-            // 오류 메시지는 setGrade()에서 출력됨
         }
     }
 }
