@@ -41,7 +41,9 @@ public class PersonManager {
 	public int findByGender(PersonEntity[] persons, char gender) {
 		int personCnt = 0;
 		for (PersonEntity person : persons) {
-			
+			if(person.getGender() == gender) {
+				personCnt++;
+			}
 		}
 		return personCnt;
 	}
