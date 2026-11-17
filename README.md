@@ -54,6 +54,3 @@ java -cp out lesson.step07.ConstructorDemo
 - src/lesson: 이번 5~7번 실습용 보충 예제
 - src/chapter1 ~ chapter6, src/basic: 강사 저장소에서 가져온 전체 예제
 - out: 컴파일 결과, Git에서 제외
-
-이번 변경은 실행 환경이 없는 상태에서 작성·코드 검토했으며 **JDK 8 컴파일 및 Windows/Mac 실행은 미검증**.
-각 문서의 예상 출력과 직접 실행 결과를 비교할 것.
