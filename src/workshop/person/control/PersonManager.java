@@ -8,6 +8,7 @@ public class PersonManager {
 		//PersonEntity 배열 선언 및 생성
 		PersonEntity[] persons = new PersonEntity[10];
 		pManager.fillPersons(persons);
+		pManager.showPersons(persons);
 	}
 	
 	//PersonEntity 배열에 값을 채워 넣는 메서드
@@ -26,7 +27,10 @@ public class PersonManager {
 	
 	//PersonEntity 배열의 값을 출력하는 메서드
 	public void showPersons(PersonEntity[] persons) {
-		
+		for (PersonEntity person : persons) {
+			System.out.println("[이름] " + person.getName() + "\t [성별] " + 
+					person.getGender() +  "\t [주소] " + person.getAddress());
+		}
 	}
 	
 	//입력받은 성별 값과 일치하는 PersonEntity 객체의 건수를 찾는 메서드
