@@ -4,6 +4,16 @@ public class Account {
 	private String custId;
 	private String acctId;
 	private int balance;
+	
+	public Account() {
+		
+	}
+
+	public Account(String custId, String acctId, int balance) {
+		this.custId = custId;
+		this.acctId = acctId;
+		this.balance = balance;
+	}
 
 	// Method 선언
 	public String getCustId() {
@@ -28,11 +38,11 @@ public class Account {
 
 	public void deposit(int amount) {
 		// this.balance = this.balance + amount;
-		this.balance += balance;
+		this.balance += amount;
 	}
 
 	public void withdraw(int amount) {
-		this.balance -= balance;
+		this.balance -= amount;
 	}
 
 }
