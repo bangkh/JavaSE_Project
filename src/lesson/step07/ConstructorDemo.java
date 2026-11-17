@@ -35,8 +35,8 @@ public class ConstructorDemo {
 
     public static void main(String[] args) {
         Student first = new Student();
-        Student second = new Student("KyungHo");
-        Student third = new Student("KyungHo", 20);
+        Student second = new Student("KyoungHo");
+        Student third = new Student("KyoungHo", 23);
         System.out.println(first.getName() + " / " + first.getAge());
         System.out.println(second.getName() + " / " + second.getAge());
         System.out.println(third.getName() + " / " + third.getAge());
