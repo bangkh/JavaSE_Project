@@ -1,39 +1,59 @@
 # JavaSE_Project
 
 LG CNS AM INSPIRE CAMP 7기 Java 수업 실습
-
 수업 자료: https://github.com/inspirecamp7/JavaSE_Project
 
-## 구성
+## 수업 순서
 
-- chapter1: 자료형, 연산자, 입력
-- chapter2: 조건문, 반복문
-- chapter3: 클래스와 객체
-- chapter4: 배열
-- chapter5: 상속, 추상 클래스, 인터페이스
-- chapter6: 컬렉션
-- basic: 개념별 예제
+| 순서 | 정리 및 실습 |
+| --- | --- |
+| 1 | [백엔드 과정 개요](docs/01-backend.md) |
+| 2 | [React, Next.js, 빌드 도구](docs/02-frontend-tools.md) |
+| 3 | [Windows / Mac 개발환경 설치](docs/03-setup.md) |
+| 4 | [GitHub CLI 인증과 Push](docs/04-github.md) |
+| 5 | [클래스 다이어그램과 관계](docs/05-class-diagram.md) |
+| 6 | [캡슐화](docs/06-encapsulation.md) |
+| 7 | [생성자](docs/07-constructors.md) |
+
+1~4번은 개념·환경 준비, 5~7번은 Java 코드 실습.
+문서는 따라 할 절차와 예상 결과이며, 개인 PC 설치 및 CLI 인증을 완료했다는 기록은 아님.
 
 ## 실행
 
-JDK 21 기준. 압축을 푼 폴더에서 PowerShell을 열고 실행
+수업 기준은 **JDK 8**. java와 javac 버전이 모두 1.8인지 확인.
+
+Windows PowerShell:
 
 ```powershell
 java -version
 javac -version
 powershell -NoProfile -ExecutionPolicy Bypass -File .\build.ps1
-java -cp out chapter1.first.HelloWorld
 ```
 
-다른 예제는 마지막 클래스 이름을 바꿔서 실행. 코드 수정 후에는 다시 컴파일
+Mac:
 
-```powershell
-java -cp out chapter1.first.MyCalculatorUsingScanner
-java -cp out chapter1.first.TestString Kyungho
+```bash
+java -version
+javac -version
+bash build.sh
 ```
 
-계산기는 숫자를 하나씩 입력하고 Enter. TestString은 뒤에 이름을 전달해야 함
+컴파일 후 아래 순서로 실행:
 
-IntelliJ에서는 이 폴더를 열고 JDK 지정 → src를 Sources Root로 지정 → main 실행
+```text
+java -cp out lesson.step05.RelationshipDemo
+java -cp out lesson.step06.EncapsulationDemo
+java -cp out lesson.step07.ConstructorDemo
+```
 
-out 폴더와 IDE 개인 설정은 Git에 올리지 않음
+기본 빌드는 이번 수업의 src/lesson만 컴파일. 기존 예제 전체는 Windows에서 build.ps1 -All, Mac에서 bash build.sh --all 사용.
+
+## 폴더 구분
+
+- docs: 수업 순서대로 정리한 문서
+- src/lesson: 이번 5~7번 실습용 보충 예제
+- src/chapter1 ~ chapter6, src/basic: 강사 저장소에서 가져온 전체 예제
+- out: 컴파일 결과, Git에서 제외
+
+이번 변경은 실행 환경이 없는 상태에서 작성·코드 검토했으며 **JDK 8 컴파일 및 Windows/Mac 실행은 미검증**.
+각 문서의 예상 출력과 직접 실행 결과를 비교할 것.
