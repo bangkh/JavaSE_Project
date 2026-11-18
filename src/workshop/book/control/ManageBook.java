@@ -42,6 +42,11 @@ public class ManageBook {
 		for (Publication publication : pubs) {
 			System.out.println(publication);
 		}
+		
+		Publication pub3 = pubs[2];
+		System.out.println("=== 가격 변경 전 ===");
+		
+		
 				
 	}//main
 	
@@ -59,7 +64,7 @@ public class ManageBook {
 			rate = 0.9;
 		}
 		
-		pub.setPrice(pub.getPrice() * rate);
+		pub.setPrice((int)(pub.getPrice() * rate));
 	}
 	
 	/*
