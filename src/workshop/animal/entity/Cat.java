@@ -10,6 +10,7 @@ public class Cat extends Animal implements Pet {
 	
 	public Cat() {
 		this("");
+		//super(4);
 	}
 
 	@Override
