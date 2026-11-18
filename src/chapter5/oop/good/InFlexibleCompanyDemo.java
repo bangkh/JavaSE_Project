@@ -30,15 +30,14 @@ public class InFlexibleCompanyDemo {
     	
     	for (Employee employee : emps) {
     		System.out.println("현재 월급입니다.");
+    		System.out.print("부서명 = " + ((Manager)employee).getDepartment() + "관리자 ");
     		System.out.println(employee.getName() + "의 현재 월급은 " + employee.getSalary() + " 만원 입니다.");
+    		System.out.println("");
     		
 		}
     	
         
-        System.out.println(mereClerk2.getName() + "의 현재 월급은 " + mereClerk2.getSalary() + " 만원 입니다.");
-        System.out.println(manager.getName() + "의 현재 월급은 " + manager.getSalary() + " 만원 입니다.");
 
-        System.out.println("");
         
         
         System.out.println("올린 후의 월급입니다.");
