@@ -45,7 +45,12 @@ public class ManageBook {
 		
 		Publication pub3 = pubs[2];
 		System.out.println("=== 가격 변경 전 ===");
+		System.out.println(pub3.getTitle() + " " + pub3.getPrice());
 		
+		modifyPrice(pub3);
+		
+		System.out.println("=== 가격 변경 후 ===");
+		System.out.println(pub3.getTitle() + " " + pub3.getPrice());
 		
 				
 	}//main
