@@ -5,19 +5,22 @@ public class SavingsAccount extends Account {
 
     public SavingsAccount(String accountNumber, String ownerName, double balance, double interestRate) {
         super(accountNumber, ownerName, balance);
-        setInterestRate(interestRate);
+        this.interestRate = interestRate;
     }
 
-    public double getInterestRate() { return interestRate; }
+    public double getInterestRate() {
+        return interestRate;
+    }
 
     public void setInterestRate(double interestRate) {
-        validateNonNegative(interestRate);
         this.interestRate = interestRate;
     }
 
     public void applyInterest() {
         double interest = getBalance() * interestRate;
-        if (interest > 0) deposit(interest);
+        if (interest > 0) {
+            deposit(interest);
+        }
         System.out.println("이자 " + interest + "원이 적용되었습니다. 현재 잔액: " + getBalance() + "원");
     }
 

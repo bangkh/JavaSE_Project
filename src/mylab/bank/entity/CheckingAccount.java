@@ -8,19 +8,19 @@ public class CheckingAccount extends Account {
 
     public CheckingAccount(String accountNumber, String ownerName, double balance, double withdrawalLimit) {
         super(accountNumber, ownerName, balance);
-        setWithdrawalLimit(withdrawalLimit);
+        this.withdrawalLimit = withdrawalLimit;
     }
 
-    public double getWithdrawalLimit() { return withdrawalLimit; }
+    public double getWithdrawalLimit() {
+        return withdrawalLimit;
+    }
 
     public void setWithdrawalLimit(double withdrawalLimit) {
-        validatePositive(withdrawalLimit);
         this.withdrawalLimit = withdrawalLimit;
     }
 
     @Override
     public void withdraw(double amount) throws InsufficientBalanceException {
-        validatePositive(amount);
         if (amount > withdrawalLimit) {
             throw new WithdrawalLimitExceededException("출금 한도를 초과했습니다. 한도: " + withdrawalLimit + "원");
         }
