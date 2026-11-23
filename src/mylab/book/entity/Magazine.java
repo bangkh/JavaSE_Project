@@ -10,8 +10,12 @@ public class Magazine extends Publication {
         this.publishPeriod = publishPeriod;
     }
 
-    public String getPublishPeriod() { return publishPeriod; }
-    public void setPublishPeriod(String publishPeriod) { this.publishPeriod = publishPeriod; }
+    public String getPublishPeriod() {
+        return publishPeriod;
+    }
+    public void setPublishPeriod(String publishPeriod) {
+        this.publishPeriod = publishPeriod;
+    }
 
     @Override
     public String toString() {

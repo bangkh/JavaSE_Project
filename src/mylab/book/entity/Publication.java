@@ -15,15 +15,31 @@ public class Publication {
         this.price = price;
     }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public String getPublishDate() { return publishDate; }
-    public void setPublishDate(String publishDate) { this.publishDate = publishDate; }
-    public int getPage() { return page; }
-    public void setPage(int page) { this.page = page; }
-    public int getPrice() { return price; }
+    public String getTitle() {
+        return title;
+    }
+    public void setTitle(String title) {
+        this.title = title;
+    }
+    public String getPublishDate() {
+        return publishDate;
+    }
+    public void setPublishDate(String publishDate) {
+        this.publishDate = publishDate;
+    }
+    public int getPage() {
+        return page;
+    }
+    public void setPage(int page) {
+        this.page = page;
+    }
+    public int getPrice() {
+        return price;
+    }
     public void setPrice(int price) {
-        if (price < 0) throw new IllegalArgumentException("가격은 0원 이상이어야 합니다.");
+        if (price < 0) {
+            throw new IllegalArgumentException("가격은 0원 이상이어야 합니다.");
+        }
         this.price = price;
     }
 

@@ -22,7 +22,6 @@ public class ManageBook {
             System.out.println((i + 1) + ". " + publications[i]);
         }
 
-        // 예시 출력의 15,120원 -> 12,096원 결과에 맞춰 마지막 소설에 적용한다.
         Publication target = publications[publications.length - 1];
         int before = target.getPrice();
         modifyPrice(target);
@@ -31,7 +30,8 @@ public class ManageBook {
         System.out.println(target.getTitle() + " 변경 후 가격: " + target.getPrice() + "원");
         System.out.println("차액: " + (before - target.getPrice()) + "원");
 
-        new StatisticsAnalyzer().printStatistics(publications);
+        StatisticsAnalyzer analyzer = new StatisticsAnalyzer();
+        analyzer.printStatistics(publications);
     }
 
     public static void modifyPrice(Publication publication) {
