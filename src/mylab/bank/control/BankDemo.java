@@ -26,18 +26,24 @@ public class BankDemo {
             System.out.println("=== 계좌 이체 테스트 ===");
             bank.transfer(anotherSavings.getAccountNumber(), checking.getAccountNumber(), 5000);
             bank.printAllAccounts();
-        } catch (AccountNotFoundException | InsufficientBalanceException e) {
+        } catch (AccountNotFoundException e) {
+            System.out.println("예외 발생: " + e.getMessage());
+        } catch (InsufficientBalanceException e) {
             System.out.println("예외 발생: " + e.getMessage());
         }
 
         try {
             bank.withdraw(checking.getAccountNumber(), 6000);
-        } catch (AccountNotFoundException | InsufficientBalanceException e) {
+        } catch (AccountNotFoundException e) {
+            System.out.println("예외 발생: " + e.getMessage());
+        } catch (InsufficientBalanceException e) {
             System.out.println("예외 발생: " + e.getMessage());
         }
         try {
             bank.transfer(checking.getAccountNumber(), savings.getAccountNumber(), 6000);
-        } catch (AccountNotFoundException | InsufficientBalanceException e) {
+        } catch (AccountNotFoundException e) {
+            System.out.println("예외 발생: " + e.getMessage());
+        } catch (InsufficientBalanceException e) {
             System.out.println("예외 발생: " + e.getMessage());
         }
         try {
