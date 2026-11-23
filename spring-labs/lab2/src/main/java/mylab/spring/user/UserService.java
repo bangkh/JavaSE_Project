@@ -5,21 +5,30 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class UserService {
-    private final UserRepository userRepository;
-    private final SecurityService securityService;
+    @Autowired
+    private UserRepository userRepository;
 
     @Autowired
-    public UserService(UserRepository userRepository, SecurityService securityService) {
-        this.userRepository = userRepository;
-        this.securityService = securityService;
+    private SecurityService securityService;
+
+    public UserRepository getUserRepository() {
+        return userRepository;
     }
 
-    public UserRepository getUserRepository() { return userRepository; }
-    public SecurityService getSecurityService() { return securityService; }
+    public SecurityService getSecurityService() {
+        return securityService;
+    }
 
     public boolean registerUser(String username, String password) {
-        if (username == null || username.trim().isEmpty()) { return false; }
-        if (!securityService.authenticate(password)) { return false; }
+        if (username == null || username.trim().equals("")) {
+            return false;
+        }
+
+        boolean login = securityService.authenticate(password);
+        if (login == false) {
+            return false;
+        }
+
         userRepository.save(username);
         return true;
     }

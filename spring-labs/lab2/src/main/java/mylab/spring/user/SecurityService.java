@@ -5,6 +5,9 @@ import org.springframework.stereotype.Component;
 @Component
 public class SecurityService {
     public boolean authenticate(String password) {
-        return password != null && !password.trim().isEmpty();
+        if (password == null || password.trim().equals("")) {
+            return false;
+        }
+        return true;
     }
 }
