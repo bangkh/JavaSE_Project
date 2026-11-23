@@ -8,7 +8,7 @@ public class Book {
     private boolean isAvailable;
 
     public Book() {
-        this.isAvailable = true;
+        isAvailable = true;
     }
 
     public Book(String title, String author, String isbn, int publishYear) {
@@ -19,22 +19,56 @@ public class Book {
         this.isAvailable = true;
     }
 
-    public String getTitle() { return title; }
-    public void setTitle(String title) { this.title = title; }
-    public String getAuthor() { return author; }
-    public void setAuthor(String author) { this.author = author; }
-    public String getIsbn() { return isbn; }
-    public void setIsbn(String isbn) { this.isbn = isbn; }
-    public int getPublishYear() { return publishYear; }
-    public void setPublishYear(int publishYear) { this.publishYear = publishYear; }
-    public boolean isAvailable() { return isAvailable; }
-    public boolean getIsAvailable() { return isAvailable; }
-    public void setAvailable(boolean available) { this.isAvailable = available; }
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(String author) {
+        this.author = author;
+    }
+
+    public String getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(String isbn) {
+        this.isbn = isbn;
+    }
+
+    public int getPublishYear() {
+        return publishYear;
+    }
+
+    public void setPublishYear(int publishYear) {
+        this.publishYear = publishYear;
+    }
+
+    public boolean isAvailable() {
+        return isAvailable;
+    }
+
+    public boolean getIsAvailable() {
+        return isAvailable;
+    }
+
+    public void setAvailable(boolean available) {
+        isAvailable = available;
+    }
 
     public boolean checkOut() {
-        if (!isAvailable) return false;
-        isAvailable = false;
-        return true;
+        if (isAvailable == true) {
+            isAvailable = false;
+            return true;
+        }
+        return false;
     }
 
     public void returnBook() {
@@ -43,8 +77,13 @@ public class Book {
 
     @Override
     public String toString() {
+        String status = "대출 중";
+        if (isAvailable == true) {
+            status = "가능";
+        }
+
         return "책 제목: " + title + "\t저자: " + author
                 + "\tISBN: " + isbn + "\t출판년도: " + publishYear
-                + "\t대출 가능 여부: " + (isAvailable ? "가능" : "대출 중");
+                + "\t대출 가능 여부: " + status;
     }
 }
