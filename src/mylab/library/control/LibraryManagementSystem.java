@@ -34,7 +34,9 @@ public class LibraryManagementSystem {
         System.out.println("===== 도서 검색 테스트 =====");
         Book titleResult = library.findByTitle("자바의 정석");
         System.out.println("제목으로 검색 결과:");
-        if (titleResult != null) System.out.println(titleResult);
+        if (titleResult != null) {
+            System.out.println(titleResult);
+        }
 
         System.out.println("저자로 검색 결과:");
         for (Book book : library.findByAuthor("Robert C. Martin")) {
@@ -45,7 +47,11 @@ public class LibraryManagementSystem {
     private static void testCheckOut(Library library) {
         System.out.println("===== 도서 대출 테스트 =====");
         String isbn = "978-89-01-14077-4";
-        System.out.println(library.checkOutBook(isbn) ? "도서 대출 성공!" : "도서 대출 실패!");
+        if (library.checkOutBook(isbn)) {
+            System.out.println("도서 대출 성공!");
+        } else {
+            System.out.println("도서 대출 실패!");
+        }
         System.out.println("대출된 도서 정보:");
         System.out.println(library.findByISBN(isbn));
         System.out.println("도서관 현재 상태:");
@@ -55,7 +61,11 @@ public class LibraryManagementSystem {
     private static void testReturn(Library library) {
         System.out.println("===== 도서 반납 테스트 =====");
         String isbn = "978-89-01-14077-4";
-        System.out.println(library.returnBook(isbn) ? "도서 반납 성공!" : "도서 반납 실패!");
+        if (library.returnBook(isbn)) {
+            System.out.println("도서 반납 성공!");
+        } else {
+            System.out.println("도서 반납 실패!");
+        }
         System.out.println("반납된 도서 정보:");
         System.out.println(library.findByISBN(isbn));
         System.out.println("도서관 현재 상태:");
