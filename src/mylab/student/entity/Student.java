@@ -38,9 +38,8 @@ public class Student {
 
     public void setGrade(int grade) throws InvalidGradeException {
         if (grade < 1 || grade > 4) {
-            InvalidGradeException exception = new InvalidGradeException("학년은 1~4 사이의 값이어야 합니다.");
-            System.out.println(exception.getMessage());
-            throw exception;
+            System.out.println("학년은 1~4 사이의 값이어야 합니다.");
+            throw new InvalidGradeException("잘못된 학년입니다.");
         }
         this.grade = grade;
     }
